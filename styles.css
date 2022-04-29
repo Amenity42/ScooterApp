@@ -1,0 +1,81 @@
+body{
+      font-family: sans-serif;
+      background-color: rgb(237, 237, 237);
+
+      width: 100vw;
+      height: 100vh;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      color: RGB(105, 88, 95);
+
+}
+
+input{
+      margin: 5px;
+}
+
+.mainAppBody{
+      position: absolute;
+
+      height: 300px;
+      background-color: RGB(252, 221, 188);
+      border: solid 2px RGB(105, 88, 95);
+      border-radius: 5px;
+ 
+
+      display: flex;
+      justify-content: center;
+      align-items:center;
+      flex-direction: column;
+
+      box-shadow: RGB(105, 88, 95) 0px 0px 20px 1px;
+
+}
+
+.titleSection{
+      position: relative;
+      top: -10px;
+      user-select: none;
+}
+
+.userDetails{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+}
+
+.confirmButton{
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: RGB(217, 219, 188);
+      width: 50px;
+      height: 25px;
+      margin: 5px;
+
+      border: solid 2px RGB(105, 88, 95);
+      border-radius: 5px;
+
+      position: relative;
+      top: 10px;
+
+      user-select: none;
+
+
+}
+
+.confirmButton:hover{
+
+      background-color: RGB(184, 216, 186);
+
+}
+
+.confirmButton:active{
+
+      color: RGB(239, 149, 157);
+
+}
+

@@ -20,7 +20,29 @@ class User{
             this.name = Name;
             this.age = Age;
 
+            //Test users age
+            try {
+                  
+                  this.checkAge();
+
+                  console.log(`Test: ${this.name} is old enough`);
+
+            } catch (error) {
+                  console.log(`Test: ${this.name} is not old enough`);
+                  
+            }
+            
       }
+
+      checkAge(){
+
+            if(this.age < 18){
+                  throw new Error('User is not old enough to rent a scooter.');
+            }
+
+      }
+
+
 
       name;
       age;
@@ -78,7 +100,57 @@ class Payment{
       constructor(){
 
       }
-      
+
+}
+
+class App{
+
+      constructor(UserName, Age){
+
+           this.accounts.push(this.account = new User(UserName, Age)); 
+
+      }
+
+      account;
+
+      accounts =[];
+
 }
 
 //* --------------------------|   End   |--------------------------
+
+
+
+
+//! --------------------------| Testing |--------------------------
+
+let account_1 = new App('Richard', 31);
+
+console.log(account_1.accounts);
+
+// let Richard = new User('Richard', 31);
+// let Gemma = new User('Gemma', 30);
+// let Oscar = new User('Oscar',4);
+
+
+
+//! --------------------------|   End   |--------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
