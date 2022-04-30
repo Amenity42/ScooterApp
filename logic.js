@@ -204,7 +204,7 @@ area_1.scooterArrive(scooter_1);
 
 //console.log(area_1.scooters);
 
-
+///
 
 //! --------------------------|   End   |--------------------------
 
