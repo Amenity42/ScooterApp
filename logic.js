@@ -52,11 +52,13 @@ class User{
 
 class Scooter{
 
-      constructor(){
+      constructor(location, locationID){
             
             this.chargeRemaining = 100;
             this.needsMaintinance = false;
-            this.ID = Math.random() * 100;
+            this.ID = Math.round(Math.random() * 100);
+            this.location = location;
+            this.locationID = locationID;
 
       }
 
@@ -64,22 +66,72 @@ class Scooter{
       needsMaintinance;
       ID;
       location;
+      locationID;
 
 }
 
 class ChargeStation{
 
-      constructor(){
-            
+      constructor(location){
+
+            //Construct X amount of scooters and add them to array
+            let i = 0;
+            this.location = location;
+            this.ID = Math.round(Math.random() * 100);
+
+            while (i < 10) {
+                 this.scooters.push(new Scooter(this.location, this.ID)); 
+                 i++
+            }
+
       }
 
       scooters = [];
       location;
       ID;
 
-      chargeScooter(){
+      chargeScooter(scooter){
+
             //todo: Charge scooter 
+            //once scooter arrives at the depo automatically set it for chargeing and then check if the scooter needs repairs
+
       }
+
+      scooterDepart(scooter){
+
+            //Handle scooter being removed from array 
+
+      }
+
+      scooterArrive(scooter){
+
+            //Handle scooter being added to array if it is not damaged
+            if(!this.checkForDamages(scooter)){
+
+                  this.scooters.push(scooter);
+                  
+            }else{
+
+                  //Send scooter for repairs
+                  console.log('Scooter sent for repairs');  
+
+            }
+
+      }
+
+      checkForDamages(scooter){
+
+            if(scooter.needsMaintinance){
+                  //deactivate scooter and send for maintinance
+                  console.log('Scooter needs maintinance');
+                  return true;
+            }
+
+            return false;
+
+      }
+
+      
 
 }
 
@@ -124,13 +176,33 @@ class App{
 
 //! --------------------------| Testing |--------------------------
 
+
+//*Test  users
 let account_1 = new App('Richard', 31);
+//console.log(account_1.accounts);
 
-console.log(account_1.accounts);
+//*Test scooter instance
+let scooter_1 = new Scooter;
 
-// let Richard = new User('Richard', 31);
-// let Gemma = new User('Gemma', 30);
-// let Oscar = new User('Oscar',4);
+//console.log(scooter_1);
+
+//Remove a portion of the battery & log
+scooter_1.chargeRemaining -=40 ;
+console.log(scooter_1.chargeRemaining);
+
+//*Testing charge station
+
+let area_1 = new ChargeStation('Basildon');
+
+//console.log(area_1);
+
+//*Test adding scooter to depo
+
+scooter_1.needsMaintinance = true;
+
+area_1.scooterArrive(scooter_1);
+
+//console.log(area_1.scooters);
 
 
 
