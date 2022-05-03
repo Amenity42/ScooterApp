@@ -27,9 +27,9 @@ class User{
                   this.checkAge();
 
                   console.log(`Test: ${this.name} is old enough`);
-                  //Todo User is old enough --> assign user a scooter --> take user to next screen so they can select destination
 
             } catch (error) {
+
                   console.log(`Test: ${this.name} is not old enough`);
                   
             }
@@ -117,7 +117,18 @@ class ChargeStation{
       //Checks in scooter - Check if damaged or uncharged 
       scooterArrive(scooter){
 
-            //Handle scooter being added to array if it is not damaged
+            //Set scooter location and ID to new depo
+            scooter.location = this.location;
+            scooter.locationID = this.ID;
+
+            //*Check if Scooter is fully charged
+            if(scooter.chargeRemaining !== 100){
+
+                  this.chargeScooter(scooter);
+
+            }
+
+            //*Check if scooter is damaged
             if(!this.checkForDamages(scooter)){ //Scooter not broken
 
                   this.scooters.push(scooter);
@@ -135,12 +146,9 @@ class ChargeStation{
 
             }
 
-            //Check if Scooter is fully charged
-            if(scooter.chargeRemaining !== 100){
+            console.log(scooter);
 
-                  this.chargeScooter(scooter);
-
-            }
+            console.table(this.scooters);
 
       }
 
@@ -208,6 +216,7 @@ class App{
       }
 
      userAccount; 
+     destination;
      static accounts =[];
 
      assignScooter(user){
@@ -228,6 +237,42 @@ class App{
                 
           });
           console.log(user.currentLocation); 
+
+     }
+
+      travel(destination){
+
+            console.log(destination);
+
+            ChargeStation.areas.forEach(element => {
+                  
+                  
+                  if(element.location === destination){
+
+                        //*Find correct instance and remove charge from scooter
+                        console.log(`Found a match in ${element}`);
+                        this.userAccount.scooter.chargeRemaining -= element.ID;
+                        console.log(this.userAccount.scooter);
+
+                        //*Check scooter into new depo
+                        element.scooterArrive(this.userAccount.scooter);
+
+                        //*Remove scooter from user
+                        this.userAccount.scooter = null;
+
+                  }
+
+            });
+
+
+
+            //Handle user traveling from one CS to another
+
+            //1. set destination
+            //2. get destinations ID and use it as a deducatble value for the battery
+            //3. call arrival function
+            //4. randomise damages
+            //5. go to payments
 
      }
 

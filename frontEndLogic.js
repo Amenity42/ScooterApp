@@ -3,7 +3,7 @@
 // let ageInput;
 // let location;
 
-
+//*Splash page
 document.getElementById("button").addEventListener("click", () => {
       
       const nameInput = document.getElementById("userName").value;
@@ -22,35 +22,43 @@ document.getElementById("button").addEventListener("click", () => {
      
 });
 
+//*Destination Page
 document.getElementById("button2").addEventListener("click", () =>{
-
+      //debugger
       const destination = document.getElementById("destination").value;
 
-      toggelOverlay('Payment');
+      //*check current location is not the same as destination
+      if(currentUserInstance.userAccount.currentLocation === destination){
 
-      //Send user + scooter to new destination (remove power from battery + break scooter chance)
-      
-      //delay a few seconds and then display arrival screen with confirm payment etc
+            alert('Please change destination');
+
+      }
+      else{
+
+            currentUserInstance.travel(destination);
+            console.log(currentUserInstance instanceof App);
+
+            toggelOverlay('Payment');
+
+      }
 
 });
 
+//*Payments Page
 document.getElementById("button3").addEventListener("click", () =>{
 
-
       toggelOverlay('');
-
 
 });
 
 //create new account instance 
 function createUser(nameInput, ageInput, location){
 
-      /* let user = */ new App(nameInput, ageInput, location);
+      currentUserInstance = new App(nameInput, ageInput, location);
 
       //Check user age before toggel screen
       if(ageInput >= 18){
             toggelOverlay('Destination');
       }
       
-
 }
