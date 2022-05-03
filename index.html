@@ -5,25 +5,82 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Scooter App</title>
+
+      <!--Fonts-->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+
+      <!--Styles-->
       <link rel="stylesheet" href="styles.css">
 </head>
 <body>
       
-      <div class="mainAppBody">
-            <div class="titleSection">
-                  Scooter App
-            </div>
-            <div class="userDetails">
-                  <input class="userName"></input>
-                  <input class="age"></input>
-                  <div class="confirmButton" id="button">
-                        Go!
-                  </div>    
+      <div class="phoneDiv">
+            <div class="camera" id="camera"></div>
+            <div class="mainAppBody">
+                  <div class="userDetailsScreen" id="userDetailsScreen">
+                        <div class="titleSection">
+                             Scooterly
+                        </div>
+                        <div class="userDetails">
+                              <div class="inputTitle" id="userNameTitle">Name</div>
+                              <input class="userName" id="userName"></input>
+
+                              <div class="inputTitle" id="ageTitle">Age</div>
+                              <input type="number" class="age" id="age"></input>
+
+                              <div class="inputTitle" id="ageTitle">Location</div>
+                              <select  class="location" id="location">
+                                    <option value="Basildon">Basildon</option>
+                                    <option value="London">London</option>
+                                    <option value="Dagenham">Dagenham</option>
+                                    <option value="Barking">Barking</option>
+                                    <option value="Upminster">Upminster</option>
+                              </select>
+                              <div class="confirmButton" id="button">
+                                    <!-- Go! -->
+                              </div>    
+                        </div>
+                  </div>
+
+
+                  <div class="overlayDestination" id="overlayDestination">
+                        <div class="titleSection">
+                              Destination
+                        </div>
+
+                       
+                        <select  class="location" id="destination">
+                              <option value="Basildon">Basildon</option>
+                              <option value="London">London</option>
+                              <option value="Dagenham">Dagenham</option>
+                              <option value="Barking">Barking</option>
+                              <option value="Upminster">Upminster</option>
+                        </select>
+                        <div class="confirmButton" id="button2">
+                              <!-- Go! -->
+                        </div> 
+                  </div>
+
+                  <div class="overlayPayment" id="overlayPayment">
+                        <div class="titleSection">
+                              Payment
+                        </div>
+
+                             <b>£4</b> 
+
+                        <div class="confirmButton" id="button3">
+                              <!-- Pay -->
+                        </div> 
+                  </div>
             </div>
       </div>
-      
+      <script src="animationLogic.js"></script>
       <script src="frontEndLogic.js"></script>
+      <script src="logic.js"></script>
 </body>
+<footer> © Amenity42 <br> 2022</footer>
 </html>
 
 

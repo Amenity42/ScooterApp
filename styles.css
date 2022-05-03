@@ -1,8 +1,14 @@
-body{
-      font-family: sans-serif;
-      background-color: rgb(237, 237, 237);
 
-      width: 100vw;
+:root{
+      --transitionSpeed: 0.5s;
+}
+
+
+body{
+
+      font-family: sans-serif;
+      background-color: rgb(69, 68, 68);
+
       height: 100vh;
       display:flex;
       justify-content: center;
@@ -11,17 +17,56 @@ body{
 
 }
 
-input{
+footer{
+      text-align: center;
+      color: rgba(139, 139, 139, 0.445);
+      position: absolute;
+      bottom: 10px;
+}
+
+input, select{
       margin: 5px;
+      width: 90%;
+      /* background-color: #ffffff38; */
+
+      border-radius: 5px;
+      border: none;
+
+      
+}
+
+.inputTitle{
+
+      /* font-family: 'Indie Flower', cursive; */
+      font-size: 80%;
+      width: 100%;
+      /* font-size: smaller; */
+      margin: 0px;
+      padding-left: 20px;
+      color: #ffffff;
+      user-select: none;
+
 }
 
 .mainAppBody{
+
       position: absolute;
+      z-index: 0;
+      overflow: hidden;
+
+}
+
+.userDetailsScreen{
+
+      position: relative;
 
       height: 300px;
-      background-color: RGB(252, 221, 188);
-      border: solid 2px RGB(105, 88, 95);
-      border-radius: 5px;
+  
+      background-image: linear-gradient(to top, #FCDDBC, #EF959D);
+
+      border: solid 1px rgb(163, 162, 162);
+
+      border-radius: 10px;
  
 
       display: flex;
@@ -29,14 +74,21 @@ input{
       align-items:center;
       flex-direction: column;
 
-      box-shadow: RGB(105, 88, 95) 0px 0px 20px 1px;
-
+      box-shadow:inset RGB(163, 162, 162) 0px 0px 8px 1px;
+      top: 0px;
+      left: 0px;
+      transition: left var(--transitionSpeed);
+      
 }
 
+
 .titleSection{
+      font-family: 'Indie Flower', cursive;
+      font-size: 140%;
       position: relative;
-      top: -10px;
+      top: -20px;
       user-select: none;
+      color: aliceblue;
 }
 
 .userDetails{
@@ -51,16 +103,22 @@ input{
       display: flex;
       justify-content: center;
       align-items: center;
-      background: RGB(217, 219, 188);
-      width: 50px;
-      height: 25px;
+      /* background: RGB(217, 219, 188); */
+
+      background-image: url('./icons/circle-check-regular_pink.svg');
+      
+      /* background: no-repeat; */
+      width: 35px;
+      height: 35px;
       margin: 5px;
 
-      border: solid 2px RGB(105, 88, 95);
-      border-radius: 5px;
+      
+      /* border: solid 1px RGB(105, 88, 95);
+      border-radius: 5px; */
 
       position: relative;
-      top: 10px;
+      top: 20px;
+      /* color: aliceblue; */
 
       user-select: none;
 
@@ -69,13 +127,107 @@ input{
 
 .confirmButton:hover{
 
-      background-color: RGB(184, 216, 186);
+      /* background-color: RGB(184, 216, 186); */
+
+      background-image: url('./icons/circle-check-regular_Dark.svg');
+      
+      /* background: no-repeat; */
+      width: 35px;
+      height: 35px;
 
 }
 
-.confirmButton:active{
 
-      color: RGB(239, 149, 157);
+/** --------------------------| Overlay |-------------------------- */
+
+
+.overlayDestination{
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      /* background-color: RGB(252, 221, 188); */
+
+      background-image: linear-gradient(to top,#EF959D, #FCDDBC);
+
+      border: solid 1px rgb(163, 162, 162);
+      box-shadow:inset RGB(163, 162, 162) 0px 0px 8px 1px;
+      width: 100%;
+      height: 100%;
+
+      position: absolute;
+      top: 0px;
+      left: -200px;
+      border-radius: 10px;
+      
+      transition: left var(--transitionSpeed);
+
+
+      /* transition: top 100px; */
+}
+
+.overlayPayment{
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      /* background-color: RGB(252, 221, 188); */
+
+      background-image: linear-gradient(to top,#EF959D, #FCDDBC);
+
+      border: solid 1px rgb(163, 162, 162);
+      box-shadow:inset RGB(163, 162, 162) 0px 0px 8px 1px;
+      width: 100%;
+      height: 100%;
+
+      position: absolute;
+
+      border-radius: 10px;
+      
+      top: 0px;
+      left: -400px;
+      transition: left var(--transitionSpeed);
+
+
+      /* transition: top 100px; */
+}
+
+/** --------------------------| Cosmetic |--------------------------- */
+
+.camera{
+
+      width:7px;
+      height:7px;
+      border-radius: 100%;
+      border: solid 1px rgb(79, 78, 78);
+
+      background-color: rgb(31, 27, 26);
+      z-index: 1;
+
+      position: relative;
+      top: -160px;
 
 }
+
+
+/** ------------------------| Phone section |------------------------ */
+
+.phoneDiv{
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: black;
+      height: 340px;
+      width: 200px;
+      border-radius: 12px;
+      border: rgb(122, 122, 122) solid 1px;
+
+      box-shadow: rgb(129, 126, 126) 0px 0px 100px 10px;
+}
+
 
